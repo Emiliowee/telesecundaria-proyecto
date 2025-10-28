@@ -1,0 +1,46 @@
+# Configuración de Apache para el backend
+# Sistema de Gestión Escolar - Telesecundaria
+
+# Habilitar el motor de reescritura
+RewriteEngine On
+
+# Permitir CORS
+Header always set Access-Control-Allow-Origin "*"
+Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-Requested-With"
+
+# Prevenir listado de directorios
+Options -Indexes
+
+# Protección de archivos sensibles
+<FilesMatch "^(config|\.env)">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Configuración de errores
+php_flag display_errors Off
+php_flag log_errors On
+
+# Configuración de sesiones
+php_value session.cookie_httponly 1
+php_value session.use_only_cookies 1
+php_value session.cookie_secure 0
+
+# Límites de PHP
+php_value upload_max_filesize 10M
+php_value post_max_size 10M
+php_value max_execution_time 300
+php_value max_input_time 300
+
+# Comprimir respuestas
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE application/json
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/javascript
+</IfModule>
+
+
+

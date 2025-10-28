@@ -1,0 +1,45 @@
+# Node modules
+node_modules/
+frontend/node_modules/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+
+# PHP vendor
+backend/vendor/
+
+# Logs
+*.log
+logs/
+backend/logs/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+frontend/.env.local
+backend/.env
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.swp
+*.swo
+*~
+
+# Database
+*.sql.backup
+*.db
+
+
